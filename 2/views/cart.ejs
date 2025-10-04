@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cart</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <a href="/">Menu</a>
+      <a href="/cart">Cart</a>
+    </div>
+  </header>
+
+  <div class="cart-container">
+    <h1>List of items</h1>
+    <% if (cart.length === 0) { %>
+      <p>No items in cart.</p>
+    <% } else { %>
+      <table>
+        <tr>
+          <th>#</th>
+          <th>Item</th>
+          <th>Qty</th>
+          <th>Price</th>
+        </tr>
+        <% cart.forEach((item, index) => { %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><%= item.name %></td>
+            <td>1</td>
+            <td><%= item.price %></td>
+          </tr>
+        <% }) %>
+      </table>
+      <p class="total">total price : <%= total %> THB</p>
+      <a href="/confirm" class="btn confirm">Confirm Order</a>
+    <% } %>
+  </div>
+</body>
+</html>
